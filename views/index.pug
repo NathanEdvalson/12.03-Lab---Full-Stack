@@ -11,23 +11,6 @@ block content
         span Completed
       else
         span Not Completed
-
-      //- Edit task form
-      form(action="/edit" method="POST")
-          input(type="hidden" name="id" value=todo.id)
-          input(type="text" name="task" value=todo.task required)
-          button(type="submit") Edit
-
-      //- Completion toggle
-      if todo.completed
-          form(action="/incomplete" method="POST")
-            input(type="hidden" name="id" value=todo.id)
-            button(type="submit") Mark Incomplete
-      else
-          form(action="/complete" method="POST")
-             input(type="hidden" name="id" value=todo.id)
-             button(type="submit") Mark Completed
-
       form(method='POST' action='/delete')
         input(type='hidden', name='id', value=val.id)
         button(type='submit') Delete
