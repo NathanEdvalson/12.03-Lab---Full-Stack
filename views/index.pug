@@ -7,7 +7,7 @@ block content
 
   ol
     each val in todos
-      li
+      li(class=val.completed > 0 ? 'completed' : '')
         span= val.task + ' - '
 
         if val.completed > 0
