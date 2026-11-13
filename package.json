@@ -1,0 +1,17 @@
+{
+  "name": "cs208-full-stack",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "http-errors": "2.0.0",
+    "mysql2": "^3.14.2",
+    "pug": "3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
