@@ -22,6 +22,16 @@ only need to run this script once per Codespace.
 ./setup_scripts/install_db.sh
 ```
 
+Use the following for questions that the script asks:
+
+- Switch to unix socket authentication [Y/n] n
+- Change the root password? [Y/n] Y
+	- Set the password to 12345
+- Remove anonymous users? [Y/n] Y
+- Disallow root login remotely? [Y/n] Y
+- Remove test database and access to it? [Y/n] Y
+- Reload privilege tables now? [Y/n] Y
+
 ## Create the Database Tables
 
 Create the initial tables by running the following command:
