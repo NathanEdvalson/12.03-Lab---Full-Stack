@@ -1,4 +1,10 @@
-const express = require('express');
+const session = require('express-session');
+
+app.use(session({
+    resave: false,
+    saveUninitialized: true
+}));
+
 const path = require('path');
 const { dbMiddleware} = require('./bin/db');
 
