@@ -53,4 +53,50 @@ router.post('/delete', function (req, res, next) {
     }
 });
 
+// Functionality for editing task description
+router.post('/edit', function (req, res, next) {
+    const { id, task } = req.body;
+
+    try {
+        req.db.query(
+            'UPDATE todos SET task = ? WHERE id = ?;',
+            [task, id],
+            (err, results) => {
+                if (err) {
+                    console.error('Error editing todo:', err);
+                    return res.status(500).send('Error editing todo');
+                }
+
+                res.redirect('/');
+            }
+        );
+    } catch (error) {
+        console.error('Error editing todo:', error);
+        res.status(500).send('Error editing todo');
+    }
+});
+
+// Functionality for completing / not completing a task
+router.post('/complete', function (req, res, next) {
+    const { id, completed } = req.body;
+
+    try {
+        req.db.query(
+            'UPDATE todos SET completed = ? WHERE id = ?;',
+            [completed, id],
+            (err, results) => {
+                if (err) {
+                    console.error('Error updating todo status:', err);
+                    return res.status(500).send('Error updating todo status');
+                }
+
+                res.redirect('/');
+            }
+        );
+    } catch (error) {
+        console.error('Error updating todo status:', error);
+        res.status(500).send('Error updating todo status');
+    }
+});
+
 module.exports = router;
